@@ -70,14 +70,23 @@
 
   // States: 0 = NEW, 1 = GUIDE, 2 = GUIDE 2.0, 3 = OLD
   var states = [
-    { label: 'NEW',       bg: '#000',    color: '#fff', overrides: true,  v1: false, v2: false },
-    { label: 'GUIDE',     bg: '#C8D96F', color: '#000', overrides: true,  v1: true,  v2: false },
-    { label: 'GUIDE 2.0', bg: '#6FB5D9', color: '#000', overrides: true,  v1: false, v2: true  },
-    { label: 'OLD',       bg: '#fff',    color: '#000', overrides: false, v1: false, v2: false }
+    { label: 'NEW',       slug: 'new',     bg: '#000',    color: '#fff', overrides: true,  v1: false, v2: false },
+    { label: 'GUIDE',     slug: 'guide',   bg: '#C8D96F', color: '#000', overrides: true,  v1: true,  v2: false },
+    { label: 'GUIDE 2.0', slug: 'guide2',  bg: '#6FB5D9', color: '#000', overrides: true,  v1: false, v2: true  },
+    { label: 'OLD',       slug: 'old',     bg: '#fff',    color: '#000', overrides: false, v1: false, v2: false }
   ];
-  // Restore saved state from localStorage, default to 0 (NEW)
-  var saved = parseInt(localStorage.getItem('dv-toggle-state'), 10);
-  var current = (saved >= 0 && saved < states.length) ? saved : 0;
+
+  // URL param ?v=slug takes priority, then localStorage, then default (NEW)
+  var urlParam = new URLSearchParams(window.location.search).get('v');
+  var current = 0;
+  if (urlParam) {
+    for (var j = 0; j < states.length; j++) {
+      if (states[j].slug === urlParam) { current = j; break; }
+    }
+  } else {
+    var saved = parseInt(localStorage.getItem('dv-toggle-state'), 10);
+    current = (saved >= 0 && saved < states.length) ? saved : 0;
+  }
 
   var btn = document.createElement('button');
   btn.title = 'Cycle: NEW → GUIDE → GUIDE 2.0 → OLD';
