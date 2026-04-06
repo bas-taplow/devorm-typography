@@ -1,0 +1,222 @@
+/* ==========================================================================
+   De Vorm — Typography Guidelines v1.0 (Original)
+   ==========================================================================
+   Applies the "Permitted weights" and "Applying the system" rules from the
+   De Vorm Typography Guidelines document. Five weights, two typefaces.
+
+   Sora Bold (700)        → Product Names XL
+   Sora SemiBold (600)    → Page headings, section headings, descriptive paragraphs
+   Sora Regular (400)     → Brand statements, subtitles, softer branded text
+   Basel Medium (500)     → Nav, buttons, category labels, table headers
+   Basel Regular (400)    → Body copy, descriptions, spec data, captions
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. SORA BOLD (700) — Product Names XL
+   "Product name. Always brand voice."
+   -------------------------------------------------------------------------- */
+
+.single-product-header h1 {
+  font-weight: 700 !important;
+  letter-spacing: -0.0322em !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. SORA SEMIBOLD (600) — Page headings, section headings, product card titles
+   "Primary page heading", "Product SM"
+   -------------------------------------------------------------------------- */
+
+/* Listing page titles (Products, Projects, News, Downloads) */
+.items-overview-title h1 {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0322em !important;
+}
+
+/* Hero / display headings — Sora SemiBold (overrides original Sora 500) */
+.column-heading.title-size-xxl {
+  font-weight: 600 !important;
+}
+
+/* Sized column headings — switch from Basel to Sora, enforce SemiBold.
+   Only target headings with an explicit title-size-* class.
+   Generic .column-heading without a size class (32px descriptors like
+   "Sit down, swivel…" or "Asset Library") stays Basel. */
+/* Display tier (xxl, xl) — -0.028em × 1.15 = -0.0322em */
+.column-heading.title-size-xxl,
+.column-heading.title-size-xl {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0322em !important;
+}
+
+/* Content heading tier (l, m) — -0.020em × 1.15 = -0.0230em */
+.column-heading.title-size-l,
+.column-heading.title-size-m {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0230em !important;
+}
+
+/* Small titles (title-size-s) — stay Basel, boost to 600 */
+.column-heading.title-size-s {
+  font-weight: 600 !important;
+}
+
+/* Product card / grid titles */
+.product-card h3,
+.product-title.item-list-title {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0230em !important;
+}
+
+/* Homepage product feature cards (Kami Swivel Chair, Twist Series, etc.) */
+.hero-text .column-heading {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0230em !important;
+}
+
+/* Project card titles */
+.project-card h3,
+.project-card .column-heading {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0230em !important;
+}
+
+/* Project detail — page title and section title */
+.page-title.xl-title,
+.section-title.title-size-m {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0230em !important;
+}
+
+/* Product detail — Specifications & Downloads section headings */
+.product-features > h2.fw-b {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0230em !important;
+}
+
+/* Homepage lead paragraph — Sora 500, same style as product intro text */
+.text-content.text-size-xxl.fw-b p {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.0230em !important;
+}
+
+/* Descriptive paragraphs — keep Basel (matches NEW styling) */
+
+/* Product detail intro heading (inside text-size-xxl container) — one step
+   lighter for readable long-form intro text. Scoped to avoid catching
+   section headings like "Big System in projects". */
+.product-page-builder .text-content.text-size-xxl .column-heading.title-size-m {
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+}
+
+/* News / article headings */
+.news-card h3,
+.news-item h3 {
+  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.0230em !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. SORA REGULAR (400) — Brand statements, subtitles, softer branded text
+   "Brand statements, subtitles, softer branded text."
+   -------------------------------------------------------------------------- */
+
+/* Brand statement / pull quote paragraphs — keep Basel (matches NEW styling) */
+
+
+/* --------------------------------------------------------------------------
+   4. BASEL MEDIUM (500) — Functional emphasis
+   "Sub-headings, table headers, category labels, emphasised functional text."
+   -------------------------------------------------------------------------- */
+
+/* Navigation links — keep at 600 to match NEW styling */
+
+/* CTA buttons — keep at 600 to match NEW styling */
+
+/* Category filter tabs */
+.category-tab,
+.filter-tab {
+  font-weight: 500 !important;
+}
+
+/* Sub-headings / column subheadings */
+.column-subheading {
+  font-weight: 500 !important;
+}
+
+/* Download file meta labels */
+.file-meta-data strong {
+  font-weight: 500 !important;
+}
+
+/* Footer column headings — already Basel, just ensure 500 */
+.footer-menu-col h4,
+.footer-menu-col .column-heading {
+  font-family: baselFont, "baselFont Fallback", Inter, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* Newsletter heading */
+footer h3,
+footer .h3-small {
+  font-family: baselFont, "baselFont Fallback", Inter, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. BASEL REGULAR (400) — Body copy, descriptions, spec data, captions
+   "Body copy, descriptions, spec data, captions, all running text."
+   -------------------------------------------------------------------------- */
+
+/* Body paragraph weights — keep NEW styling (fw-m = 500) */
+
+/* Footer navigation links */
+footer .footer-menu-col a {
+  font-weight: 400 !important;
+}
+
+/* Breadcrumb links */
+.breadcrumbs a,
+.breadcrumbs span {
+  font-weight: 400 !important;
+}
+
+/* Product card descriptors / subtitles — Basel Medium per guidelines */
+.product-card .text-size-s,
+.product-card .column-subheading {
+  font-family: baselFont, "baselFont Fallback", Inter, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* Spec table text */
+.spec-table td,
+.spec-table th {
+  font-weight: 400 !important;
+}
+
+/* Form labels and inputs */
+input,
+textarea,
+select {
+  font-weight: 400 !important;
+}
+
+/* Back-to-overview links */
+.back-to-overview {
+  font-weight: 400 !important;
+}

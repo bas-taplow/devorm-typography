@@ -1,0 +1,375 @@
+/* ==========================================================================
+   De Vorm — Typography & Styling Overrides
+   ==========================================================================
+   All CSS changes go here. This file is loaded LAST, after all compiled
+   stylesheets. Use !important to override hashed class names.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Video placeholders — fill empty video blocks with black
+   Scope: ALL pages
+   -------------------------------------------------------------------------- */
+.video-wrapper {
+  background: #000 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Product images — force visible (JS fade-in doesn't run in static copy)
+   Scope: products page
+   -------------------------------------------------------------------------- */
+.product-image.opacity-0 {
+  opacity: 1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Header — fixed with scroll-reveal (JS in css-toggle.js handles show/hide)
+   Scope: ALL pages
+   -------------------------------------------------------------------------- */
+body > header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* Hidden state — toggled by JS on scroll-down */
+.header-hidden {
+  transform: translateY(-100%) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Hamburger icon — the SVG was loaded via JS on the live site.
+   Recreate with CSS pseudo-elements (3 horizontal lines).
+   -------------------------------------------------------------------------- */
+.btns-right-side button:last-of-type {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background: transparent !important;
+  border: none !important;
+  background-image:
+    linear-gradient(currentColor, currentColor),
+    linear-gradient(currentColor, currentColor),
+    linear-gradient(currentColor, currentColor) !important;
+  background-size: 20px 2px !important;
+  background-position: center 8px, center 13px, center 18px !important;
+  background-repeat: no-repeat !important;
+}
+
+.btns-right-side button:last-of-type > .sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Side menu — open state (toggled by JS)
+   -------------------------------------------------------------------------- */
+.side-menu-wrapper.side-menu-open {
+  translate: 0 !important;
+  transform: translateX(0) !important;
+}
+
+
+/* ==========================================================================
+   1. BODY TEXT LINE-HEIGHTS
+   --------------------------------------------------------------------------
+   The site uses text-size-xxl (40px), text-size-xl (28px), text-size-m (20px)
+   intentionally per page. The problem: all have tight line-heights (1.1–1.25).
+   Fix: open them up for readability while keeping the bold character.
+   ========================================================================== */
+
+/* Lead paragraphs — text-size-xxl = 40px, was lh 1.1 (44px) → 1.3 (52px) */
+.text-content.text-size-xxl p {
+  line-height: 1.3 !important;
+}
+
+/* Medium-large — text-size-xl = 28px, was lh 1.25 (35px) → 1.4 (39px) */
+.text-content.text-size-xl p {
+  line-height: 1.4 !important;
+}
+
+/* Standard body — text-size-m = 20px, was lh 1.25 (25px) → 1.5 (30px) */
+.text-content.text-size-m p {
+  line-height: 1.5 !important;
+}
+
+/* Base body (no size class) — 20px, was lh 1.25 → 1.5 */
+.text-content p {
+  line-height: 1.5 !important;
+}
+
+/* Rich text blocks (contact hours, addresses) */
+.rich-text p,
+.rich-text li {
+  line-height: 1.5 !important;
+}
+
+
+/* ==========================================================================
+   2. HEADING LINE-HEIGHTS
+   --------------------------------------------------------------------------
+   Large headings at 1.0 ratio collapse when they wrap to multiple lines.
+   Subtle increase preserves the tight, bold aesthetic.
+   ========================================================================== */
+
+/* Display / hero titles — 1.08 (GUIDE v2 overrides to 1.05 for xxl) */
+.column-heading.title-size-xxl {
+  line-height: 1.08 !important;
+}
+
+/* Section headings — 1.1 (GUIDE v2 overrides to 1.08 for xl) */
+.column-heading.title-size-xl {
+  line-height: 1.1 !important;
+}
+
+/* Medium headings — 1.15 */
+.column-heading.title-size-l,
+.column-heading.title-size-m {
+  line-height: 1.15 !important;
+}
+
+/* Product card titles — 22px, already tight (1.1) → 1.2 */
+.product-card h3 {
+  line-height: 1.2 !important;
+}
+
+
+/* ==========================================================================
+   3. CTA BUTTON WEIGHT
+   --------------------------------------------------------------------------
+   At 16px / 8×24px padding, CTAs vanish next to 40px body text.
+   Increase padding to give them presence without changing the font size.
+   ========================================================================== */
+
+.btn-primary {
+  padding: 12px 32px !important;
+}
+
+/* Header CTA — needs to match new padding */
+.header-highlight-btn.btn-primary {
+  padding: 10px 28px !important;
+}
+
+
+/* ==========================================================================
+   4. VERTICAL SPACING RHYTHM
+   --------------------------------------------------------------------------
+   Normalize heading-to-body gaps and section breathing room.
+   Don't touch section padding (varies by content type — intentional).
+   ========================================================================== */
+
+/* Heading to body text gap — consistent 0.4em below headings */
+.column-heading + .text-content {
+  margin-top: 0.75rem !important;
+}
+
+/* Tighten card title to subtitle — product cards, project cards */
+.column-heading + .column-subheading,
+.column-heading + .text-content.text-size-s {
+  margin-top: 0.25rem !important;
+}
+
+/* Footer section headings — consistent spacing */
+.footer-menu-col h4,
+.footer-menu-col .column-heading {
+  margin-bottom: 1rem !important;
+}
+
+
+
+/* ==========================================================================
+   5. MOBILE — "Explore the Collection" hero button
+   --------------------------------------------------------------------------
+   Hidden by a responsive rule on mobile. Force visible and position below
+   the hero visual.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .hero-button {
+    display: block !important;
+    margin-top: 1.5rem !important;
+  }
+}
+
+
+/* ==========================================================================
+   6. GRID GAP CONSISTENCY
+   --------------------------------------------------------------------------
+   Projects listing uses 16px flex gap while products/downloads use 24px grid gap.
+   Bump to 24px and shrink items to fit (calc 50% minus half the gap).
+   ========================================================================== */
+
+.project-list.view-grid {
+  gap: 24px !important;
+}
+
+.project-list.view-grid .project-card {
+  width: calc(50% - 12px) !important;
+}
+
+
+/* ==========================================================================
+   7. ARROW ICONS — recreate the sprite arrow (→) with CSS
+   --------------------------------------------------------------------------
+   The live site injects a 24×24 right-arrow via ::after using a sprite SVG.
+   The static copy lost these. Recreate with an inline SVG mask so the arrow
+   inherits currentColor (white on dark, black on light).
+   ========================================================================== */
+
+/* Base: all .w-arrow links get position:relative and the ::after arrow */
+.col-link.w-arrow {
+  position: relative !important;
+}
+
+.col-link.w-arrow::after {
+  content: "" !important;
+  display: inline-block !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-color: currentColor !important;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E") !important;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E") !important;
+  -webkit-mask-size: contain !important;
+  mask-size: contain !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-repeat: no-repeat !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
+}
+
+/* Text + arrow variant: arrow sits inline after the text label */
+.col-link.link-type-text.w-arrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Arrow-only variant: center the arrow inside the 48×48 hit area */
+.col-link.link-type-arrow-only.w-arrow {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+
+/* ==========================================================================
+   8. CONTACT PAGE — left column heading size
+   --------------------------------------------------------------------------
+   Left column headings (Visit, Call, Mail) are 18.4px while the body text
+   below them is 20px — headings are *smaller* than their content.
+   Bump to 24px to establish clear hierarchy without competing with the
+   right column's 32px headings.
+   ========================================================================== */
+
+.row-2 .col-1 .column-heading.title-size-s {
+  font-size: 24px !important;
+  margin-bottom: 0.5rem !important;
+}
+
+
+/* ==========================================================================
+   9. FOOTER — link hierarchy
+   --------------------------------------------------------------------------
+   Footer headings are 28px/500, links are 18px/600. Both full white.
+   The links are bolder than their headings, undermining hierarchy.
+   Mute links to 0.7 opacity; restore on hover for clear affordance.
+   ========================================================================== */
+
+footer .footer-menu-col a {
+  opacity: 0.7 !important;
+  transition: opacity 0.15s ease !important;
+}
+
+footer .footer-menu-col a:hover {
+  opacity: 1 !important;
+}
+
+
+/* ==========================================================================
+   10. MOBILE — body offset for fixed header
+   --------------------------------------------------------------------------
+   The header is position:fixed but the body has no top padding to
+   compensate. On mobile, content starts hidden behind the nav bar.
+   Header is ~56px tall on mobile.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  body {
+    padding-top: 56px !important;
+  }
+}
+
+
+/* ==========================================================================
+   11. DOWNLOADS DETAIL — tighten breadcrumb bar
+   --------------------------------------------------------------------------
+   The .downloads-header has 32px top + 32px bottom padding around a 21px
+   breadcrumb row, totaling 90px. This pushes the title+filters down and
+   makes the page feel more spaced-out than products/projects listings.
+   Tighten to 16px top/bottom (53px total) to feel more consistent.
+   ========================================================================== */
+
+.downloads-header {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+
+/* ==========================================================================
+   12. DOWNLOADS DETAIL — title size
+   --------------------------------------------------------------------------
+   The H1 is 30px (text-3xl) while product/section headings are 40–64px.
+   Bump to 40px to match the section heading tier and give the asset name
+   proper page-level presence.
+   ========================================================================== */
+
+.asset-file-page h1 {
+  font-size: 40px !important;
+  line-height: 1.15 !important;
+}
+
+
+/* ==========================================================================
+   13. DOWNLOADS DETAIL — full-round pills (email, company data)
+   --------------------------------------------------------------------------
+   The access-type labels have border-radius:10px — visually a soft rect,
+   not a pill. Use 9999px for a true capsule shape.
+   ========================================================================== */
+
+.file-access-type label {
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+}
+
+
+/* ==========================================================================
+   14. HOMEPAGE — hero body weight normalisation
+   --------------------------------------------------------------------------
+   The lead paragraph ("We create contemporary furniture…") is fw-b (600)
+   while ALL other body text sitewide is fw-m (500). At 40px the size alone
+   provides prominence — 600 makes it feel heavier than everything else.
+   ========================================================================== */
+
+.text-content.text-size-xxl.fw-b p {
+  font-weight: 500 !important;
+}
+
+
+/* ==========================================================================
+   15. BARE H1 — line-height fallback for unclassed page titles
+   --------------------------------------------------------------------------
+   Listing pages (products, projects, news, downloads) and product detail
+   pages have bare <h1> tags with no typography classes. Their line-height
+   is 1.0 (102.4px / 102.4px) — will collapse if the title wraps.
+   Target the known parent wrappers to avoid catching styled headings.
+   ========================================================================== */
+
+.items-overview-title h1,
+.single-product-header h1 {
+  line-height: 1.08 !important;
+}
