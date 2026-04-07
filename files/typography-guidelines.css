@@ -123,19 +123,19 @@
 
 
 /* --------------------------------------------------------------------------
-   3. INTRO / LEAD TEXT — Sora 500, readable long-form
+   3. INTRO / LEAD TEXT — Basel 500, readable long-form
    -------------------------------------------------------------------------- */
 
 /* Homepage lead paragraph */
 .text-content.text-size-xxl.fw-b p {
-  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-family: baselFont, "baselFont Fallback", Inter, sans-serif !important;
   font-weight: 500 !important;
   line-height: 1.35 !important;
-  letter-spacing: -0.0275em !important;
 }
 
 /* Product detail intro heading (inside text-size-xxl container) */
 .product-page-builder .text-content.text-size-xxl .column-heading.title-size-m {
+  font-family: baselFont, "baselFont Fallback", Inter, sans-serif !important;
   font-weight: 500 !important;
   line-height: 1.35 !important;
   font-size: clamp(24px, 2.8vw, 40px) !important;
