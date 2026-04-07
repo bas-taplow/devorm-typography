@@ -103,20 +103,16 @@
   letter-spacing: -0.0230em !important;
 }
 
-/* Homepage lead paragraph — Sora 500, same style as product intro text */
+/* Homepage lead paragraph — Basel 500, readable long-form */
 .text-content.text-size-xxl.fw-b p {
-  font-family: Sora, "Sora Fallback", sans-serif !important;
+  font-family: baselFont, "baselFont Fallback", Inter, sans-serif !important;
   font-weight: 500 !important;
   line-height: 1.35 !important;
-  letter-spacing: -0.0230em !important;
 }
 
-/* Descriptive paragraphs — keep Basel (matches NEW styling) */
-
-/* Product detail intro heading (inside text-size-xxl container) — one step
-   lighter for readable long-form intro text. Scoped to avoid catching
-   section headings like "Big System in projects". */
+/* Product detail intro heading (inside text-size-xxl container) — Basel 500 */
 .product-page-builder .text-content.text-size-xxl .column-heading.title-size-m {
+  font-family: baselFont, "baselFont Fallback", Inter, sans-serif !important;
   font-weight: 500 !important;
   line-height: 1.35 !important;
 }
